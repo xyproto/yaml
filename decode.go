@@ -8,6 +8,8 @@ import (
 	"reflect"
 	"strconv"
 	"time"
+
+	"github.com/xyproto/octal"
 )
 
 const (
@@ -195,6 +197,7 @@ type decoder struct {
 var (
 	mapItemType    = reflect.TypeOf(MapItem{})
 	durationType   = reflect.TypeOf(time.Duration(0))
+	octalType      = reflect.TypeOf(octal.Octal(0))
 	defaultMapType = reflect.TypeOf(map[interface{}]interface{}{})
 	ifaceType      = defaultMapType.Elem()
 )

@@ -3,6 +3,7 @@ package yaml
 import (
 	"encoding"
 	"fmt"
+	"github.com/xyproto/octal"
 	"reflect"
 	"regexp"
 	"sort"
@@ -110,6 +111,8 @@ func (e *encoder) marshal(tag string, in reflect.Value) {
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		if in.Type() == durationType {
 			e.stringv(tag, reflect.ValueOf(iface.(time.Duration).String()))
+		} else if in.Type() == octalType {
+			e.stringv(tag, reflect.ValueOf(iface.(octal.Octal).String()))
 		} else {
 			e.intv(tag, in)
 		}

@@ -2,6 +2,7 @@ package yaml_test
 
 import (
 	"errors"
+	. "github.com/xyproto/octal"
 	. "gopkg.in/check.v1"
 	"gopkg.in/yaml.v2"
 	"math"
@@ -500,6 +501,12 @@ var unmarshalTests = []struct {
 	{
 		"a: 3s",
 		map[string]time.Duration{"a": 3 * time.Second},
+	},
+
+	// Octal
+	{
+		"a: 0660",
+		map[string]Octal{"a": 432},
 	},
 
 	// Issue #24.
